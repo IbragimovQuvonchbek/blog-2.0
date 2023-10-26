@@ -11,7 +11,7 @@ class PostListView(ListView):
 class FullPostView(DetailView):
     model = Post
     template_name = 'full_post.html'
-class CreatePostView(LoginRequiredMixin,UserPassesTestMixin,CreateView):
+class CreatePostView(LoginRequiredMixin,CreateView):
     model = Post
     template_name = 'create_post.html'
     fields = ['title','photo','body']
@@ -19,8 +19,6 @@ class CreatePostView(LoginRequiredMixin,UserPassesTestMixin,CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-    def test_func(self):
-        return self.request.user.is_superuser
     
 class UpdatePostView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
     model = Post 

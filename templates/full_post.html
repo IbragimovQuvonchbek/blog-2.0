@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    {%if post.photo%}
+    <div class="blogPost" style="text-align: center;" >
+        <img src="{{post.photo.url}}" class="card-img-top" alt="" style="width: 400px; width: 50%;">
+        {%else%}
+        <img src="{{post.photo}}" class="card-img-top" alt="">
+        {%endif%}
+        <h2>{{post.title}}</h2>
+        <h3>--{{post.author}} {{post.date}}</h3>
+        <p>{{post.body|safe}}</p>
+        <br>
+        {% if user.is_authenticated%}
+        <button type="button"  class="btn btn-primary"><a href="{% url 'edit_post' post.id %}" style="text-decoration: none; color: white;">Edit</a></button>
+        <button type="button" class="btn btn-danger"><a href="{% url 'delete_post' post.id %}" style="text-decoration: none; color: white;">Delete</a></button>
+        {%endif%}
+    </div>
+    {%endblock content%}
+</body>
+</html>

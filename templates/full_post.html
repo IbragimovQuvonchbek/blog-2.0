@@ -19,8 +19,6 @@
         <p>{{post.body|safe}}</p>
         <br>
         {% if user.is_authenticated%}
-        <button type="button"  class="btn btn-primary"><a href="{% url 'edit_post' post.id %}" style="text-decoration: none; color: white;">Edit</a></button>
-        <button type="button" class="btn btn-danger"><a href="{% url 'delete_post' post.id %}" style="text-decoration: none; color: white;">Delete</a></button>
         {%endif%}
     </div>
     {%endblock content%}

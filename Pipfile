@@ -11,6 +11,7 @@ django-ckeditor = "*"
 environs = {extras = ["django"], version = "*"}
 whitenoise = "*"
 gunicorn = "*"
+pillow = "*"
 
 [dev-packages]
 

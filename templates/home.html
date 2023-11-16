@@ -8,24 +8,26 @@
 </head>
 
 <body>
-{% extends 'base.html' %}
-{% block content %}
-{% if user.is_authenticated %}
-<div class="card" style="margin-top: 50px;">
-    <div class="card-body">
-        <h5 class="card-title">Python Course</h5>
-        <a href="{%url 'post'%}" class="btn btn-primary">View Problems</a>
+    {% extends 'base.html' %}
+    {% block content %}
+    {% if user.is_authenticated %}
+    <div class="card" style="margin-top: 50px;">
+        <div class="card-body">
+          <h5 class="card-title">Python Course</h5>
+          <a href="{%url 'post'%}" class="btn btn-primary">View Problems</a>
+        </div>
     </div>
-</div>
-{% else %}
-<div class="card" style="margin-top: 50px;">
-    <div class="card-body">
-        <h5 class="card-title">Please sign up or log in to view problems</h5>
-        <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Log in</a>
-        <a class="nav-link active" aria-current="page" href="{%url 'signup'%}">Sign up</a>
+    {%else%}
+    <div class="card" style="margin-top: 50px;">
+        <div class="card-body">
+          <h5 class="card-title">Please log in or sign up to view problems</h5>
+            <br>
+          <a href="{%url 'login'%}" class="btn btn-primary">Log in</a>
+          <a href="{%url 'signup'%}" class="btn btn-primary">Sign up</a>
+        </div>
     </div>
-</div>
-{% endblock content %}
+    {%endif%}
+    {% endblock content %}
 </body>
 
 </html>

@@ -14,16 +14,13 @@
         {% for post in object_list%}
     <br>
     <div class="card" style="width: 22rem;">
-        {%if post.photo%}
-        <img src="{{post.photo.url}}" class="card-img-top" alt="">
-        {%else%}
-        <img src="{{post.photo}}" class="card-img-top" alt="">
-        {%endif%}
         <div class="card-body">
             <h2><a href="{%url 'full_post' post.id%}" style="text-decoration: none;">{{post.title}}</a></h2>
             <p>--{{post.author}}</p>
             <p class="card-text">{{post.body|slice:"150"|safe}}...</p>
             <p>{{post.date}}</p>
+            <br>
+            <button type="submit" class="btn btn-primary"><a href="{%url 'full_post' post.id%}" style="text-decoration: none; color:white;">view</a></button>
         </div>
       </div>
       <br>
